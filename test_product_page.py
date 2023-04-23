@@ -14,14 +14,9 @@ class TestUserAddToBasketFromProductPage:
         self.page.open()
         fake = Faker()
         email = fake.email()
-        password = fake.password()
-        self.page.register_new_user(email, password)
+        password = "12QW34as56ZX"
+        self.page.register_new_user(email=email, password=password)
         self.page.should_be_authorized_user()
-
-    def test_user_cant_see_success_message(self, browser):
-        self.page = ProductPage(browser, product_link)
-        self.page.open()
-        self.page.should_not_be_success_message()
 
     @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
@@ -30,6 +25,11 @@ class TestUserAddToBasketFromProductPage:
         self.page.open()
         self.page.add_to_cart()
         self.page.solve_quiz_and_get_code()
+
+    def test_user_cant_see_success_message(self, browser):
+        self.page = ProductPage(browser, product_link)
+        self.page.open()
+        self.page.should_not_be_success_message()
 
 
 @pytest.mark.need_review
