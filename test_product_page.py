@@ -4,15 +4,16 @@ from .pages.basket_page import BasketPage
 from .pages.links import product_link, login_link
 import time
 import pytest
-
+from faker import Faker
 
 class TestUserAddToBasketFromProductPage:
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
-        email = str(time.time()) + "@fakemail.org"
-        password = "12QW34as56ZX"
         self.page = LoginPage(browser, login_link)
         self.page.open()
+        fake = Faker()
+        email = fake.email()
+        password = fake.password()
         self.page.register_new_user(email, password)
         self.page.should_be_authorized_user()
 
