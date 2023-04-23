@@ -6,6 +6,7 @@ import time
 import pytest
 from faker import Faker
 
+
 class TestUserAddToBasketFromProductPage:
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
