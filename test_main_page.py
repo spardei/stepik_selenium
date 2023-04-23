@@ -6,7 +6,7 @@ from .pages.links import main_link
 
 
 @pytest.mark.login_guest
-class TestLoginFromMainPage():
+class TestLoginFromMainPage:
 
     def test_guest_can_go_to_login_page(self, browser):
         self.page = MainPage(browser, main_link)
@@ -41,7 +41,3 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     page.open_basket()
     page = BasketPage(browser)
     page.empty_basket()
-
-
-
-

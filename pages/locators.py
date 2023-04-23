@@ -32,5 +32,3 @@ class BasePageLocators:
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     OPEN_BASKET = (By.PARTIAL_LINK_TEXT, "basket")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
-
-

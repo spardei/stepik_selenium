@@ -22,4 +22,3 @@ class BasketPage(BasePage):
 
     def product_price_in_basket(self, product_price):
         assert product_price in self.items_in_basket(), "Basket sum not equal product price."
-

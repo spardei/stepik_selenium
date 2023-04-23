@@ -1,14 +1,10 @@
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from .locators import BasePageLocators
-import sys
-sys.path.append('E:\\git_files\\selen_stepik')
-from conftest import browser
 
 
-class BasePage():
+class BasePage:
 
     def __init__(self, browser, url=None, timeout=10):
         self.browser = browser
@@ -68,7 +64,3 @@ class BasePage():
     def should_be_authorized_user(self):
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
                                                                      " probably unauthorised user"
-
-
-
-

@@ -6,7 +6,7 @@ import time
 import pytest
 
 
-class TestUserAddToBasketFromProductPage():
+class TestUserAddToBasketFromProductPage:
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
         email = str(time.time()) + "@fakemail.org"
@@ -59,8 +59,3 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page = ProductPage(browser, product_link)
     page.open()
     page.should_be_login_link()
-
-
-
-
-

@@ -18,4 +18,3 @@ def test_guest_can_add_product_to_basket(browser, link):
     page = BasketPage(browser)
     page.product_in_basket(product_name)
     page.product_price_in_basket(product_price)
-
