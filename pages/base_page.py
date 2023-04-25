@@ -52,6 +52,8 @@ class BasePage:
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
+        from .login_page import LoginPage
+        return LoginPage(self.browser)
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
@@ -59,7 +61,8 @@ class BasePage:
     def open_basket(self):
         button = self.browser.find_element(*BasePageLocators.OPEN_BASKET)
         button.click()
-        ### return page класс новой страницы
+        from .basket_page import BasketPage
+        return BasketPage(self.browser)
 
     def should_be_authorized_user(self):
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \

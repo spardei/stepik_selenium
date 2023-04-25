@@ -1,6 +1,5 @@
 import pytest
 from .pages.product_page import ProductPage
-from .pages.basket_page import BasketPage
 
 
 @pytest.mark.parametrize('link', [0, 1, 2, 3, 4, 5, 6,
@@ -14,7 +13,6 @@ def test_guest_can_add_product_to_basket(browser, link):
     product_price = page.product_price()
     page.add_to_cart()
     page.solve_quiz_and_get_code()
-    page.open_basket()
-    page = BasketPage(browser)
+    page = page.open_basket()
     page.product_in_basket(product_name)
     page.product_price_in_basket(product_price)

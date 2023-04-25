@@ -1,8 +1,6 @@
 from .pages.product_page import ProductPage
 from .pages.login_page import LoginPage
-from .pages.basket_page import BasketPage
 from .pages.links import product_link, login_link
-import time
 import pytest
 from faker import Faker
 
@@ -12,8 +10,7 @@ class TestUserAddToBasketFromProductPage:
     def setup(self, browser):
         self.page = LoginPage(browser, login_link)
         self.page.open()
-        fake = Faker()
-        email = fake.email()
+        email = Faker().email()
         password = "12QW34as56ZX"
         self.page.register_new_user(email=email, password=password)
         self.page.should_be_authorized_user()
@@ -45,8 +42,7 @@ def test_guest_can_add_product_to_basket(browser):
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     page = ProductPage(browser, product_link)
     page.open()
-    page.open_basket()
-    page = BasketPage(browser)
+    page = page.open_basket()
     page.empty_basket()
 
 

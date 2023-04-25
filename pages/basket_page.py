@@ -1,8 +1,8 @@
-from .base_page import BasePage
+from .base_page import BasePage as Base
 from .locators import BasketPageLocators
 
 
-class BasketPage(BasePage):
+class BasketPage(Base):
 
     def __init__(self, *args, **kwargs):
         super(BasketPage, self).__init__(*args, **kwargs)
